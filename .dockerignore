@@ -1,0 +1,13 @@
+.git
+.gitignore
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.vscode/
+.DS_Store
+notebooks/
+.ipynb_checkpoints/
+test_outputs/
+*.log
