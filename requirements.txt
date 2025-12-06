@@ -8,3 +8,6 @@ sumy>=0.11.0
 torch>=2.8.0
 transformers>=4.56.1
 huggingface_hub[hf_xet]
+fastapi
+uvicorn[standard]
+pydantic
