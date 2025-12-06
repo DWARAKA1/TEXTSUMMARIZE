@@ -8,6 +8,21 @@ from pathlib import Path
 # Get the project root directory
 PROJECT_ROOT = Path(__file__).parent.absolute()
 
+import os
+from pydantic import BaseSettings
+
+class Settings(BaseSettings):
+    env: str = os.getenv("ENV", "dev")
+    model_name: str = os.getenv("MODEL_NAME", "facebook/bart-large-cnn")
+    max_input_tokens: int = int(os.getenv("MAX_INPUT_TOKENS", "2048"))
+    port: int = int(os.getenv("PORT", "8000"))
+    log_level: str = os.getenv("LOG_LEVEL", "INFO")
+
+    class Config:
+        env_file = ".env"
+
+settings = Settings()
+
 # Application Settings
 APP_NAME = "TextSummarize"
 APP_VERSION = "1.0.0"
