@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: textsummarize
+  labels:
+    app: textsummarize
+spec:
+  type: LoadBalancer
+  selector:
+    app: textsummarize
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8000
+    name: http
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 10800
